@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { resourcesAPI } from '../services/api';
 import { Resource } from '../types';
-import { SearchIcon, FilterIcon, CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
+import { SearchIcon, CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 
 const TYPE_LABELS: Record<string, string> = {
   COURT: 'Courts',
@@ -13,7 +13,6 @@ const TYPE_LABELS: Record<string, string> = {
 
 const ActivitiesPage: React.FC = () => {
   const [resources, setResources] = useState<Resource[]>([]);
-  const { t } = useI18n();
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedType, setSelectedType] = useState('');
