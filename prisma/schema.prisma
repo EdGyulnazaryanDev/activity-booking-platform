@@ -1,0 +1,205 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── Enums ───────────────────────────────────────────────────────────────────
+
+enum Role {
+  ADMIN
+  USER
+}
+
+enum ResourceType {
+  ROOM
+  EQUIPMENT
+  COURT
+}
+
+/// How inventory is counted
+enum ResourceCapacityType {
+  UNIT  // single exclusive resource (tennis court, football pitch)
+  POOL  // multiple concurrent slots (10 PCs, 8 pool lanes)
+}
+
+/// Priority levels for pricing rules — higher wins on overlap
+enum PricingPriority {
+  WEEKDAY  // 1 — base
+  WEEKEND  // 2
+  HOLIDAY  // 3 — highest
+}
+
+enum BookingStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  PAID
+}
+
+enum TransactionType {
+  TOPUP       // wallet top-up
+  PAYMENT     // booking payment from wallet
+  REFUND      // refund back to wallet
+}
+
+enum TransactionStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}
+
+enum PaymentMethod {
+  WALLET      // pay from in-app wallet
+  IDRAM       // IDram e-wallet (Armenia)
+  TELCELL     // Telcell wallet (Armenia)
+  CASH        // cash on arrival, admin confirms
+  BANK        // bank transfer, admin confirms
+}
+
+enum NotificationType {
+  INFO
+  SUCCESS
+  WARNING
+  ERROR
+  BOOKING_CONFIRMED
+  BOOKING_CANCELLED
+  BOOKING_APPROVED
+  BOOKING_REJECTED
+}
+
+// ─── Models ──────────────────────────────────────────────────────────────────
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  password  String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  bookings      Booking[]
+  notifications Notification[]
+  wallet        Wallet?
+}
+
+/// A bookable physical resource (room, equipment, court, etc.)
+model Resource {
+  id             String              @id @default(cuid())
+  name           String
+  type           ResourceType
+  capacityType   ResourceCapacityType @default(UNIT)
+  isQuantifiable Boolean             @default(false) // kept for backwards compat — derived from capacityType
+  totalCapacity  Int                 @default(1)
+  isActive       Boolean             @default(true)
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+
+  pricingRules PricingRule[]
+  bookings     Booking[]
+}
+
+/// Time-based pricing rule with priority for overlap resolution
+model PricingRule {
+  id         String          @id @default(cuid())
+  resourceId String
+  label      String?
+  priority   PricingPriority @default(WEEKDAY)
+  /// Days of week this rule applies: 0=Sun,1=Mon…6=Sat. Empty = all days.
+  daysOfWeek Int[]
+  startTime  String          // "HH:MM" 24h
+  endTime    String          // "HH:MM" 24h
+  hourlyRate Float
+  isActive   Boolean         @default(true)
+  createdAt  DateTime        @default(now())
+  updatedAt  DateTime        @updatedAt
+
+  resource Resource @relation(fields: [resourceId], references: [id], onDelete: Cascade)
+}
+
+/// A booking of a Resource by a User
+model Booking {
+  id                  String        @id @default(cuid())
+  userId              String
+  resourceId          String
+  staffId             String?
+  partnerOfBookingId  String?
+  quantity            Int           @default(1)
+  startTime           DateTime
+  endTime             DateTime
+  status              BookingStatus @default(PENDING)
+  totalPrice          Float
+  paymentMethod       PaymentMethod?
+  paidAt              DateTime?
+  notes               String?
+  isOpenForPartners   Boolean       @default(false)
+  softHoldKey         String?       // Redis key used during checkout hold
+  approvedBy          String?
+  approvedAt          DateTime?
+  createdAt           DateTime      @default(now())
+  updatedAt           DateTime      @updatedAt
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  resource Resource @relation(fields: [resourceId], references: [id], onDelete: Cascade)
+  staff    Staff?   @relation(fields: [staffId], references: [id], onDelete: SetNull)
+}
+
+/// User wallet — one per user
+model Wallet {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  balance   Float    @default(0)
+  currency  String   @default("AMD")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  transactions Transaction[]
+}
+
+/// Wallet transaction log
+model Transaction {
+  id            String            @id @default(cuid())
+  walletId      String
+  type          TransactionType
+  status        TransactionStatus @default(PENDING)
+  amount        Float
+  description   String?
+  bookingId     String?           // linked booking if payment/refund
+  externalRef   String?           // IDram/Telcell transaction reference
+  createdAt     DateTime          @default(now())
+
+  wallet Wallet @relation(fields: [walletId], references: [id], onDelete: Cascade)
+}
+
+/// Staff member with specialty and availability info
+model Staff {
+  id                   String         @id @default(cuid())
+  name                 String
+  email                String         @unique
+  specialty            String?
+  allowedResourceTypes ResourceType[] // e.g. [COURT] — empty means all types allowed
+  availability         Json?
+  phone                String?
+  isActive             Boolean        @default(true)
+  createdAt            DateTime       @default(now())
+  updatedAt            DateTime       @updatedAt
+
+  bookings Booking[]
+}
+
+model Notification {
+  id        String           @id @default(cuid())
+  userId    String
+  title     String
+  message   String
+  type      NotificationType @default(INFO)
+  isRead    Boolean          @default(false)
+  createdAt DateTime         @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
