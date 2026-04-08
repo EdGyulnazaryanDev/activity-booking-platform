@@ -7,41 +7,41 @@ export declare class PricingController {
     constructor(pricingService: PricingService, pricingEngine: PricingEngineService);
     create(dto: CreatePricingDto): Promise<{
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        isActive: boolean;
+        resourceId: string;
         label: string | null;
         priority: import("../../generated/prisma/enums").PricingPriority;
         daysOfWeek: number[];
         startTime: string;
         endTime: string;
         hourlyRate: number;
-        isActive: boolean;
-        createdAt: Date;
-        updatedAt: Date;
-        resourceId: string;
     }>;
     findAll(resourceId?: string): Promise<({
         resource: {
+            type: import("../../generated/prisma/enums").ResourceType;
+            name: string;
             id: string;
-            isActive: boolean;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
-            type: import("../../generated/prisma/enums").ResourceType;
-            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
             isQuantifiable: boolean;
             totalCapacity: number;
+            isActive: boolean;
+            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         };
     } & {
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        isActive: boolean;
+        resourceId: string;
         label: string | null;
         priority: import("../../generated/prisma/enums").PricingPriority;
         daysOfWeek: number[];
         startTime: string;
         endTime: string;
         hourlyRate: number;
-        isActive: boolean;
-        createdAt: Date;
-        updatedAt: Date;
-        resourceId: string;
     })[]>;
     calculatePrice(resourceId: string, startTime: string, endTime: string, breakdown?: string): Promise<{
         breakdown: {
@@ -57,53 +57,53 @@ export declare class PricingController {
     }>;
     findOne(id: string): Promise<{
         resource: {
+            type: import("../../generated/prisma/enums").ResourceType;
+            name: string;
             id: string;
-            isActive: boolean;
             createdAt: Date;
             updatedAt: Date;
-            name: string;
-            type: import("../../generated/prisma/enums").ResourceType;
-            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
             isQuantifiable: boolean;
             totalCapacity: number;
+            isActive: boolean;
+            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         };
     } & {
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        isActive: boolean;
+        resourceId: string;
         label: string | null;
         priority: import("../../generated/prisma/enums").PricingPriority;
         daysOfWeek: number[];
         startTime: string;
         endTime: string;
         hourlyRate: number;
-        isActive: boolean;
-        createdAt: Date;
-        updatedAt: Date;
-        resourceId: string;
     }>;
     update(id: string, dto: UpdatePricingDto): Promise<{
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        isActive: boolean;
+        resourceId: string;
         label: string | null;
         priority: import("../../generated/prisma/enums").PricingPriority;
         daysOfWeek: number[];
         startTime: string;
         endTime: string;
         hourlyRate: number;
-        isActive: boolean;
-        createdAt: Date;
-        updatedAt: Date;
-        resourceId: string;
     }>;
     remove(id: string): Promise<{
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        isActive: boolean;
+        resourceId: string;
         label: string | null;
         priority: import("../../generated/prisma/enums").PricingPriority;
         daysOfWeek: number[];
         startTime: string;
         endTime: string;
         hourlyRate: number;
-        isActive: boolean;
-        createdAt: Date;
-        updatedAt: Date;
-        resourceId: string;
     }>;
 }

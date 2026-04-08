@@ -5,86 +5,86 @@ export declare class ResourcesController {
     private readonly resourcesService;
     constructor(resourcesService: ResourcesService);
     create(dto: CreateResourceDto): Promise<{
-        id: string;
+        type: ResourceType;
         name: string;
-        isActive: boolean;
+        id: string;
         createdAt: Date;
         updatedAt: Date;
-        type: ResourceType;
-        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         isQuantifiable: boolean;
         totalCapacity: number;
+        isActive: boolean;
+        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
     }>;
     findAll(type?: ResourceType): Promise<({
         pricingRules: {
             id: string;
-            isActive: boolean;
             createdAt: Date;
             updatedAt: Date;
+            isActive: boolean;
             resourceId: string;
-            startTime: string;
-            endTime: string;
             label: string | null;
             priority: import("../../generated/prisma/enums").PricingPriority;
             daysOfWeek: number[];
+            startTime: string;
+            endTime: string;
             hourlyRate: number;
         }[];
     } & {
-        id: string;
+        type: ResourceType;
         name: string;
-        isActive: boolean;
+        id: string;
         createdAt: Date;
         updatedAt: Date;
-        type: ResourceType;
-        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         isQuantifiable: boolean;
         totalCapacity: number;
+        isActive: boolean;
+        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
     })[]>;
     findOne(id: string): Promise<{
         pricingRules: {
             id: string;
-            isActive: boolean;
             createdAt: Date;
             updatedAt: Date;
+            isActive: boolean;
             resourceId: string;
-            startTime: string;
-            endTime: string;
             label: string | null;
             priority: import("../../generated/prisma/enums").PricingPriority;
             daysOfWeek: number[];
+            startTime: string;
+            endTime: string;
             hourlyRate: number;
         }[];
     } & {
-        id: string;
+        type: ResourceType;
         name: string;
-        isActive: boolean;
+        id: string;
         createdAt: Date;
         updatedAt: Date;
-        type: ResourceType;
-        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         isQuantifiable: boolean;
         totalCapacity: number;
+        isActive: boolean;
+        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
     }>;
     update(id: string, dto: UpdateResourceDto): Promise<{
-        id: string;
+        type: ResourceType;
         name: string;
-        isActive: boolean;
+        id: string;
         createdAt: Date;
         updatedAt: Date;
-        type: ResourceType;
-        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         isQuantifiable: boolean;
         totalCapacity: number;
+        isActive: boolean;
+        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
     }>;
     remove(id: string): Promise<{
-        id: string;
+        type: ResourceType;
         name: string;
-        isActive: boolean;
+        id: string;
         createdAt: Date;
         updatedAt: Date;
-        type: ResourceType;
-        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         isQuantifiable: boolean;
         totalCapacity: number;
+        isActive: boolean;
+        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
     }>;
 }

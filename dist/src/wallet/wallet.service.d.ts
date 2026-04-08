@@ -4,13 +4,13 @@ export declare class WalletService {
     constructor(prisma: PrismaService);
     getOrCreate(userId: string): Promise<{
         transactions: {
+            type: import("../../generated/prisma/enums").TransactionType;
+            description: string | null;
             id: string;
             createdAt: Date;
             status: import("../../generated/prisma/enums").TransactionStatus;
-            type: import("../../generated/prisma/enums").TransactionType;
             walletId: string;
             amount: number;
-            description: string | null;
             bookingId: string | null;
             externalRef: string | null;
         }[];
@@ -58,37 +58,37 @@ export declare class WalletService {
         items: {
             booking: {
                 resource: {
-                    name: string;
                     type: import("../../generated/prisma/enums").ResourceType;
+                    name: string;
                 };
             } & {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                userId: string;
                 resourceId: string;
-                staffId: string | null;
-                partnerOfBookingId: string | null;
-                quantity: number;
                 startTime: Date;
                 endTime: Date;
+                userId: string;
+                quantity: number;
+                notes: string | null;
+                isOpenForPartners: boolean;
                 status: import("../../generated/prisma/enums").BookingStatus;
+                staffId: string | null;
+                partnerOfBookingId: string | null;
                 totalPrice: number;
                 paymentMethod: import("../../generated/prisma/enums").PaymentMethod | null;
                 paidAt: Date | null;
-                notes: string | null;
-                isOpenForPartners: boolean;
                 softHoldKey: string | null;
                 approvedBy: string | null;
                 approvedAt: Date | null;
             };
+            type: import("../../generated/prisma/enums").TransactionType;
+            description: string | null;
             id: string;
             createdAt: Date;
             status: import("../../generated/prisma/enums").TransactionStatus;
-            type: import("../../generated/prisma/enums").TransactionType;
             walletId: string;
             amount: number;
-            description: string | null;
             bookingId: string | null;
             externalRef: string | null;
         }[];

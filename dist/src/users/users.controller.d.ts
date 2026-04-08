@@ -3,10 +3,10 @@ export declare class UsersController {
     private prisma;
     constructor(prisma: PrismaService);
     findAll(): import("../../generated/prisma/internal/prismaNamespace").PrismaPromise<{
-        id: string;
-        name: string;
         email: string;
-        createdAt: Date;
+        name: string;
         role: import("../../generated/prisma/enums").Role;
+        id: string;
+        createdAt: Date;
     }[]>;
 }

@@ -4,29 +4,29 @@ export declare class StaffService {
     private prisma;
     constructor(prisma: PrismaService);
     create(dto: CreateStaffDto): Promise<{
-        id: string;
-        name: string;
         email: string;
+        name: string;
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        isActive: boolean;
         specialty: string | null;
         allowedResourceTypes: import("../../generated/prisma/enums").ResourceType[];
         availability: import("@prisma/client/runtime/client").JsonValue | null;
         phone: string | null;
-        isActive: boolean;
-        createdAt: Date;
-        updatedAt: Date;
     }>;
     findAll(page?: number, limit?: number, search?: string, isActive?: boolean): Promise<{
         items: {
-            id: string;
-            name: string;
             email: string;
+            name: string;
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            isActive: boolean;
             specialty: string | null;
             allowedResourceTypes: import("../../generated/prisma/enums").ResourceType[];
             availability: import("@prisma/client/runtime/client").JsonValue | null;
             phone: string | null;
-            isActive: boolean;
-            createdAt: Date;
-            updatedAt: Date;
         }[];
         total: number;
         page: number;
@@ -34,39 +34,39 @@ export declare class StaffService {
         totalPages: number;
     }>;
     findOne(id: string): Promise<{
-        id: string;
-        name: string;
         email: string;
+        name: string;
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        isActive: boolean;
         specialty: string | null;
         allowedResourceTypes: import("../../generated/prisma/enums").ResourceType[];
         availability: import("@prisma/client/runtime/client").JsonValue | null;
         phone: string | null;
-        isActive: boolean;
-        createdAt: Date;
-        updatedAt: Date;
     }>;
     update(id: string, dto: UpdateStaffDto): Promise<{
-        id: string;
-        name: string;
         email: string;
+        name: string;
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        isActive: boolean;
         specialty: string | null;
         allowedResourceTypes: import("../../generated/prisma/enums").ResourceType[];
         availability: import("@prisma/client/runtime/client").JsonValue | null;
         phone: string | null;
-        isActive: boolean;
-        createdAt: Date;
-        updatedAt: Date;
     }>;
     remove(id: string): Promise<{
-        id: string;
-        name: string;
         email: string;
+        name: string;
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        isActive: boolean;
         specialty: string | null;
         allowedResourceTypes: import("../../generated/prisma/enums").ResourceType[];
         availability: import("@prisma/client/runtime/client").JsonValue | null;
         phone: string | null;
-        isActive: boolean;
-        createdAt: Date;
-        updatedAt: Date;
     }>;
 }

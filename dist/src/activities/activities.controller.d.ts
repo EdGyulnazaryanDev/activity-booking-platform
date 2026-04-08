@@ -5,51 +5,51 @@ export declare class ActivitiesController {
     findAll(): Promise<({
         pricingRules: {
             id: string;
-            isActive: boolean;
             createdAt: Date;
             updatedAt: Date;
+            isActive: boolean;
             resourceId: string;
-            startTime: string;
-            endTime: string;
             label: string | null;
             priority: import("../../generated/prisma/enums").PricingPriority;
             daysOfWeek: number[];
+            startTime: string;
+            endTime: string;
             hourlyRate: number;
         }[];
     } & {
-        id: string;
+        type: import("../../generated/prisma/enums").ResourceType;
         name: string;
-        isActive: boolean;
+        id: string;
         createdAt: Date;
         updatedAt: Date;
-        type: import("../../generated/prisma/enums").ResourceType;
-        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         isQuantifiable: boolean;
         totalCapacity: number;
+        isActive: boolean;
+        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
     })[]>;
     findOne(id: string): Promise<{
         pricingRules: {
             id: string;
-            isActive: boolean;
             createdAt: Date;
             updatedAt: Date;
+            isActive: boolean;
             resourceId: string;
-            startTime: string;
-            endTime: string;
             label: string | null;
             priority: import("../../generated/prisma/enums").PricingPriority;
             daysOfWeek: number[];
+            startTime: string;
+            endTime: string;
             hourlyRate: number;
         }[];
     } & {
-        id: string;
+        type: import("../../generated/prisma/enums").ResourceType;
         name: string;
-        isActive: boolean;
+        id: string;
         createdAt: Date;
         updatedAt: Date;
-        type: import("../../generated/prisma/enums").ResourceType;
-        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         isQuantifiable: boolean;
         totalCapacity: number;
+        isActive: boolean;
+        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
     }>;
 }

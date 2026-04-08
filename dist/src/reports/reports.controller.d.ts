@@ -33,38 +33,38 @@ export declare class ReportsController {
         }[];
         recentPaidBookings: ({
             user: {
-                id: string;
-                name: string;
                 email: string;
+                name: string;
+                id: string;
             };
             resource: {
-                id: string;
+                type: import("../../generated/prisma/enums").ResourceType;
                 name: string;
-                isActive: boolean;
+                id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                type: import("../../generated/prisma/enums").ResourceType;
-                capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
                 isQuantifiable: boolean;
                 totalCapacity: number;
+                isActive: boolean;
+                capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
             };
         } & {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            userId: string;
             resourceId: string;
-            staffId: string | null;
-            partnerOfBookingId: string | null;
-            quantity: number;
             startTime: Date;
             endTime: Date;
+            userId: string;
+            quantity: number;
+            notes: string | null;
+            isOpenForPartners: boolean;
             status: import("../../generated/prisma/enums").BookingStatus;
+            staffId: string | null;
+            partnerOfBookingId: string | null;
             totalPrice: number;
             paymentMethod: import("../../generated/prisma/enums").PaymentMethod | null;
             paidAt: Date | null;
-            notes: string | null;
-            isOpenForPartners: boolean;
             softHoldKey: string | null;
             approvedBy: string | null;
             approvedAt: Date | null;

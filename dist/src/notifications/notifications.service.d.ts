@@ -6,32 +6,32 @@ export declare class NotificationsService {
     private ntfy;
     constructor(prisma: PrismaService, ntfy: NtfyProvider);
     findByUser(userId: string): Promise<{
-        id: string;
-        userId: string;
-        title: string;
-        message: string;
         type: NotificationType;
-        isRead: boolean;
+        title: string;
+        id: string;
         createdAt: Date;
+        userId: string;
+        message: string;
+        isRead: boolean;
     }[]>;
     findUnreadByUser(userId: string): Promise<{
-        id: string;
-        userId: string;
-        title: string;
-        message: string;
         type: NotificationType;
-        isRead: boolean;
+        title: string;
+        id: string;
         createdAt: Date;
+        userId: string;
+        message: string;
+        isRead: boolean;
     }[]>;
     getUnreadCount(userId: string): Promise<number>;
     markAsRead(id: string): Promise<{
-        id: string;
-        userId: string;
-        title: string;
-        message: string;
         type: NotificationType;
-        isRead: boolean;
+        title: string;
+        id: string;
         createdAt: Date;
+        userId: string;
+        message: string;
+        isRead: boolean;
     }>;
     markAllAsRead(userId: string): Promise<import("../../generated/prisma/internal/prismaNamespace").BatchPayload>;
     private save;
