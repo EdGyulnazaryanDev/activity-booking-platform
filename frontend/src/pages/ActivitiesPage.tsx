@@ -1,4 +1,3 @@
-import { useI18n } from '../contexts/I18nContext';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { resourcesAPI } from '../services/api';
