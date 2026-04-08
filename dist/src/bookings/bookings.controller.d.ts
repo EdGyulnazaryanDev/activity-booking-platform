@@ -6,20 +6,20 @@ export declare class BookingsController {
     constructor(bookingsService: BookingsService);
     create(dto: CreateBookingDto, user: CurrentUserPayload): Promise<{
         user: {
+            id: string;
             email: string;
             name: string;
-            id: string;
         };
         resource: {
-            type: import("../../generated/prisma/enums").ResourceType;
-            name: string;
             id: string;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
+            type: import("../../generated/prisma/enums").ResourceType;
+            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
             isQuantifiable: boolean;
             totalCapacity: number;
             isActive: boolean;
-            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         };
     } & {
         id: string;
@@ -29,15 +29,15 @@ export declare class BookingsController {
         startTime: Date;
         endTime: Date;
         userId: string;
-        quantity: number;
-        notes: string | null;
-        isOpenForPartners: boolean;
-        status: import("../../generated/prisma/enums").BookingStatus;
         staffId: string | null;
         partnerOfBookingId: string | null;
+        quantity: number;
+        status: import("../../generated/prisma/enums").BookingStatus;
         totalPrice: number;
         paymentMethod: import("../../generated/prisma/enums").PaymentMethod | null;
         paidAt: Date | null;
+        notes: string | null;
+        isOpenForPartners: boolean;
         softHoldKey: string | null;
         approvedBy: string | null;
         approvedAt: Date | null;
@@ -45,19 +45,19 @@ export declare class BookingsController {
     getLobby(): Promise<{
         availableSlots: number;
         user: {
-            name: string;
             id: string;
+            name: string;
         };
         resource: {
-            type: import("../../generated/prisma/enums").ResourceType;
-            name: string;
             id: string;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
+            type: import("../../generated/prisma/enums").ResourceType;
+            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
             isQuantifiable: boolean;
             totalCapacity: number;
             isActive: boolean;
-            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         };
         id: string;
         createdAt: Date;
@@ -66,34 +66,34 @@ export declare class BookingsController {
         startTime: Date;
         endTime: Date;
         userId: string;
-        quantity: number;
-        notes: string | null;
-        isOpenForPartners: boolean;
-        status: import("../../generated/prisma/enums").BookingStatus;
         staffId: string | null;
         partnerOfBookingId: string | null;
+        quantity: number;
+        status: import("../../generated/prisma/enums").BookingStatus;
         totalPrice: number;
         paymentMethod: import("../../generated/prisma/enums").PaymentMethod | null;
         paidAt: Date | null;
+        notes: string | null;
+        isOpenForPartners: boolean;
         softHoldKey: string | null;
         approvedBy: string | null;
         approvedAt: Date | null;
     }[]>;
     findAll(user: CurrentUserPayload): Promise<({
         resource: {
-            type: import("../../generated/prisma/enums").ResourceType;
-            name: string;
             id: string;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
+            type: import("../../generated/prisma/enums").ResourceType;
+            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
             isQuantifiable: boolean;
             totalCapacity: number;
             isActive: boolean;
-            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         };
         staff: {
-            name: string;
             id: string;
+            name: string;
             specialty: string;
         };
     } & {
@@ -104,24 +104,24 @@ export declare class BookingsController {
         startTime: Date;
         endTime: Date;
         userId: string;
-        quantity: number;
-        notes: string | null;
-        isOpenForPartners: boolean;
-        status: import("../../generated/prisma/enums").BookingStatus;
         staffId: string | null;
         partnerOfBookingId: string | null;
+        quantity: number;
+        status: import("../../generated/prisma/enums").BookingStatus;
         totalPrice: number;
         paymentMethod: import("../../generated/prisma/enums").PaymentMethod | null;
         paidAt: Date | null;
+        notes: string | null;
+        isOpenForPartners: boolean;
         softHoldKey: string | null;
         approvedBy: string | null;
         approvedAt: Date | null;
     })[]>;
     findOne(id: string): Promise<{
         user: {
+            id: string;
             email: string;
             name: string;
-            id: string;
         };
         resource: {
             pricingRules: {
@@ -138,19 +138,19 @@ export declare class BookingsController {
                 hourlyRate: number;
             }[];
         } & {
-            type: import("../../generated/prisma/enums").ResourceType;
-            name: string;
             id: string;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
+            type: import("../../generated/prisma/enums").ResourceType;
+            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
             isQuantifiable: boolean;
             totalCapacity: number;
             isActive: boolean;
-            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         };
         staff: {
-            name: string;
             id: string;
+            name: string;
             specialty: string;
         };
     } & {
@@ -161,35 +161,35 @@ export declare class BookingsController {
         startTime: Date;
         endTime: Date;
         userId: string;
-        quantity: number;
-        notes: string | null;
-        isOpenForPartners: boolean;
-        status: import("../../generated/prisma/enums").BookingStatus;
         staffId: string | null;
         partnerOfBookingId: string | null;
+        quantity: number;
+        status: import("../../generated/prisma/enums").BookingStatus;
         totalPrice: number;
         paymentMethod: import("../../generated/prisma/enums").PaymentMethod | null;
         paidAt: Date | null;
+        notes: string | null;
+        isOpenForPartners: boolean;
         softHoldKey: string | null;
         approvedBy: string | null;
         approvedAt: Date | null;
     }>;
     update(id: string, dto: UpdateBookingDto): Promise<{
         user: {
+            id: string;
             email: string;
             name: string;
-            id: string;
         };
         resource: {
-            type: import("../../generated/prisma/enums").ResourceType;
-            name: string;
             id: string;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
+            type: import("../../generated/prisma/enums").ResourceType;
+            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
             isQuantifiable: boolean;
             totalCapacity: number;
             isActive: boolean;
-            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         };
     } & {
         id: string;
@@ -199,15 +199,15 @@ export declare class BookingsController {
         startTime: Date;
         endTime: Date;
         userId: string;
-        quantity: number;
-        notes: string | null;
-        isOpenForPartners: boolean;
-        status: import("../../generated/prisma/enums").BookingStatus;
         staffId: string | null;
         partnerOfBookingId: string | null;
+        quantity: number;
+        status: import("../../generated/prisma/enums").BookingStatus;
         totalPrice: number;
         paymentMethod: import("../../generated/prisma/enums").PaymentMethod | null;
         paidAt: Date | null;
+        notes: string | null;
+        isOpenForPartners: boolean;
         softHoldKey: string | null;
         approvedBy: string | null;
         approvedAt: Date | null;
@@ -220,15 +220,15 @@ export declare class BookingsController {
         startTime: Date;
         endTime: Date;
         userId: string;
-        quantity: number;
-        notes: string | null;
-        isOpenForPartners: boolean;
-        status: import("../../generated/prisma/enums").BookingStatus;
         staffId: string | null;
         partnerOfBookingId: string | null;
+        quantity: number;
+        status: import("../../generated/prisma/enums").BookingStatus;
         totalPrice: number;
         paymentMethod: import("../../generated/prisma/enums").PaymentMethod | null;
         paidAt: Date | null;
+        notes: string | null;
+        isOpenForPartners: boolean;
         softHoldKey: string | null;
         approvedBy: string | null;
         approvedAt: Date | null;

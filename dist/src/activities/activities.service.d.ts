@@ -17,15 +17,15 @@ export declare class ActivitiesService {
             hourlyRate: number;
         }[];
     } & {
-        type: import("../../generated/prisma/enums").ResourceType;
-        name: string;
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
+        type: import("../../generated/prisma/enums").ResourceType;
+        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         isQuantifiable: boolean;
         totalCapacity: number;
         isActive: boolean;
-        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
     })[]>;
     findOne(id: string): Promise<{
         pricingRules: {
@@ -42,14 +42,14 @@ export declare class ActivitiesService {
             hourlyRate: number;
         }[];
     } & {
-        type: import("../../generated/prisma/enums").ResourceType;
-        name: string;
         id: string;
+        name: string;
         createdAt: Date;
         updatedAt: Date;
+        type: import("../../generated/prisma/enums").ResourceType;
+        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         isQuantifiable: boolean;
         totalCapacity: number;
         isActive: boolean;
-        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
     }>;
 }

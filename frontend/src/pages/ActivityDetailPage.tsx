@@ -4,7 +4,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { resourcesAPI, bookingsAPI } from '../services/api';
 import { Resource } from '../types';
-import { ArrowLeftIcon, ClockIcon, UsersIcon, CalendarIcon } from 'lucide-react';
+import { ArrowLeftIcon, ClockIcon, UsersIcon } from 'lucide-react';
 
 const ActivityDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();

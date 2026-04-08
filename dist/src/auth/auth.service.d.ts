@@ -24,26 +24,26 @@ export declare class AuthService {
         token: string;
     }>;
     validateUser(email: string, password: string): Promise<{
-        email: string;
-        password: string;
-        name: string | null;
-        role: import("../../generated/prisma/enums").Role;
         id: string;
+        email: string;
+        name: string | null;
+        password: string;
+        role: import("../../generated/prisma/enums").Role;
         createdAt: Date;
         updatedAt: Date;
     }>;
     getProfile(userId: string): Promise<{
+        id: string;
         email: string;
         name: string;
         role: import("../../generated/prisma/enums").Role;
-        id: string;
         createdAt: Date;
     }>;
     updateProfile(userId: string, updateDto: UpdateUserDto): Promise<{
+        id: string;
         email: string;
         name: string;
         role: import("../../generated/prisma/enums").Role;
-        id: string;
         createdAt: Date;
     }>;
     private generateToken;

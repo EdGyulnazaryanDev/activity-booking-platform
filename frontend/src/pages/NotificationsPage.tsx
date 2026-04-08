@@ -19,7 +19,6 @@ const NTFY_BASE = process.env.REACT_APP_NTFY_URL || 'https://ntfy.sh';
 const NTFY_ADMIN_TOPIC = process.env.REACT_APP_NTFY_ADMIN_TOPIC || 'booking-platform-admin';
 
 const NotificationsPage: React.FC = () => {
-  const { user } = useAuth();
   const { t } = useI18n();
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [loading, setLoading] = useState(true);
