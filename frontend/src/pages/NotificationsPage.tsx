@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { notificationsAPI } from '../services/api';
 import { Notification } from '../types';
-import { useAuth } from '../contexts/AuthContext';
 import { useI18n } from '../contexts/I18nContext';
 
 const TYPE_STYLES: Record<string, { bg: string; icon: string }> = {

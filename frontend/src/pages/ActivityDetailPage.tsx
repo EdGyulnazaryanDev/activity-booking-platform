@@ -12,7 +12,6 @@ const ActivityDetailPage: React.FC = () => {
   const navigate = useNavigate();
 
   const [resource, setResource] = useState<Resource | null>(null);
-  const { t } = useI18n();
   const [loading, setLoading] = useState(true);
   const [bookingLoading, setBookingLoading] = useState(false);
   const [error, setError] = useState('');
