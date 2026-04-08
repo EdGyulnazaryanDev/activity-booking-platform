@@ -8,7 +8,10 @@ const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3010';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
-  headers: { 'Content-Type': 'application/json' },
+  headers: {
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true', // bypass ngrok interstitial page
+  },
 });
 
 api.interceptors.request.use((config) => {
