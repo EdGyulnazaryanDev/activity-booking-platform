@@ -5,14 +5,14 @@ export declare class AdminPaymentsController {
     getPayments(page?: string, limit?: string): Promise<{
         items: ({
             user: {
-                id: string;
                 email: string;
                 name: string;
+                id: string;
             };
             resource: {
-                id: string;
-                name: string;
                 type: import("../../generated/prisma/enums").ResourceType;
+                name: string;
+                id: string;
             };
         } & {
             id: string;
@@ -22,15 +22,15 @@ export declare class AdminPaymentsController {
             startTime: Date;
             endTime: Date;
             userId: string;
+            quantity: number;
+            notes: string | null;
+            isOpenForPartners: boolean;
+            status: import("../../generated/prisma/enums").BookingStatus;
             staffId: string | null;
             partnerOfBookingId: string | null;
-            quantity: number;
-            status: import("../../generated/prisma/enums").BookingStatus;
             totalPrice: number;
             paymentMethod: import("../../generated/prisma/enums").PaymentMethod | null;
             paidAt: Date | null;
-            notes: string | null;
-            isOpenForPartners: boolean;
             softHoldKey: string | null;
             approvedBy: string | null;
             approvedAt: Date | null;

@@ -18,15 +18,15 @@ export declare class PricingService {
     }>;
     findAll(resourceId?: string): Promise<({
         resource: {
-            id: string;
+            type: import("../../generated/prisma/enums").ResourceType;
             name: string;
+            id: string;
             createdAt: Date;
             updatedAt: Date;
-            type: import("../../generated/prisma/enums").ResourceType;
-            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
             isQuantifiable: boolean;
             totalCapacity: number;
             isActive: boolean;
+            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         };
     } & {
         id: string;
@@ -43,15 +43,15 @@ export declare class PricingService {
     })[]>;
     findOne(id: string): Promise<{
         resource: {
-            id: string;
+            type: import("../../generated/prisma/enums").ResourceType;
             name: string;
+            id: string;
             createdAt: Date;
             updatedAt: Date;
-            type: import("../../generated/prisma/enums").ResourceType;
-            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
             isQuantifiable: boolean;
             totalCapacity: number;
             isActive: boolean;
+            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         };
     } & {
         id: string;

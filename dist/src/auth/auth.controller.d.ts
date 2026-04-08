@@ -23,17 +23,17 @@ export declare class AuthController {
         token: string;
     }>;
     getProfile(user: CurrentUserPayload): Promise<{
-        id: string;
         email: string;
         name: string;
         role: import("../../generated/prisma/enums").Role;
+        id: string;
         createdAt: Date;
     }>;
     updateProfile(user: CurrentUserPayload, updateDto: UpdateUserDto): Promise<{
-        id: string;
         email: string;
         name: string;
         role: import("../../generated/prisma/enums").Role;
+        id: string;
         createdAt: Date;
     }>;
     refreshToken(user: CurrentUserPayload): Promise<string>;

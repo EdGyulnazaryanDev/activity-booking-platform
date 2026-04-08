@@ -6,24 +6,24 @@ export declare class AdminService {
     constructor(prisma: PrismaService, bookingsService: BookingsService);
     approveBooking(bookingId: string, adminId: string, staffId?: string): Promise<{
         user: {
-            id: string;
             email: string;
             name: string;
+            id: string;
         };
         resource: {
-            id: string;
+            type: import("../../generated/prisma/enums").ResourceType;
             name: string;
+            id: string;
             createdAt: Date;
             updatedAt: Date;
-            type: import("../../generated/prisma/enums").ResourceType;
-            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
             isQuantifiable: boolean;
             totalCapacity: number;
             isActive: boolean;
+            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         };
         staff: {
-            id: string;
             name: string;
+            id: string;
         };
     } & {
         id: string;
@@ -33,35 +33,35 @@ export declare class AdminService {
         startTime: Date;
         endTime: Date;
         userId: string;
+        quantity: number;
+        notes: string | null;
+        isOpenForPartners: boolean;
+        status: import("../../generated/prisma/enums").BookingStatus;
         staffId: string | null;
         partnerOfBookingId: string | null;
-        quantity: number;
-        status: import("../../generated/prisma/enums").BookingStatus;
         totalPrice: number;
         paymentMethod: import("../../generated/prisma/enums").PaymentMethod | null;
         paidAt: Date | null;
-        notes: string | null;
-        isOpenForPartners: boolean;
         softHoldKey: string | null;
         approvedBy: string | null;
         approvedAt: Date | null;
     }>;
     rejectBooking(bookingId: string, adminId: string): Promise<{
         user: {
-            id: string;
             email: string;
             name: string;
+            id: string;
         };
         resource: {
-            id: string;
+            type: import("../../generated/prisma/enums").ResourceType;
             name: string;
+            id: string;
             createdAt: Date;
             updatedAt: Date;
-            type: import("../../generated/prisma/enums").ResourceType;
-            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
             isQuantifiable: boolean;
             totalCapacity: number;
             isActive: boolean;
+            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         };
     } & {
         id: string;
@@ -71,30 +71,30 @@ export declare class AdminService {
         startTime: Date;
         endTime: Date;
         userId: string;
+        quantity: number;
+        notes: string | null;
+        isOpenForPartners: boolean;
+        status: import("../../generated/prisma/enums").BookingStatus;
         staffId: string | null;
         partnerOfBookingId: string | null;
-        quantity: number;
-        status: import("../../generated/prisma/enums").BookingStatus;
         totalPrice: number;
         paymentMethod: import("../../generated/prisma/enums").PaymentMethod | null;
         paidAt: Date | null;
-        notes: string | null;
-        isOpenForPartners: boolean;
         softHoldKey: string | null;
         approvedBy: string | null;
         approvedAt: Date | null;
     }>;
     markAsPaid(bookingId: string, adminId: string): Promise<{
         resource: {
-            id: string;
+            type: import("../../generated/prisma/enums").ResourceType;
             name: string;
+            id: string;
             createdAt: Date;
             updatedAt: Date;
-            type: import("../../generated/prisma/enums").ResourceType;
-            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
             isQuantifiable: boolean;
             totalCapacity: number;
             isActive: boolean;
+            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         };
     } & {
         id: string;
@@ -104,15 +104,15 @@ export declare class AdminService {
         startTime: Date;
         endTime: Date;
         userId: string;
+        quantity: number;
+        notes: string | null;
+        isOpenForPartners: boolean;
+        status: import("../../generated/prisma/enums").BookingStatus;
         staffId: string | null;
         partnerOfBookingId: string | null;
-        quantity: number;
-        status: import("../../generated/prisma/enums").BookingStatus;
         totalPrice: number;
         paymentMethod: import("../../generated/prisma/enums").PaymentMethod | null;
         paidAt: Date | null;
-        notes: string | null;
-        isOpenForPartners: boolean;
         softHoldKey: string | null;
         approvedBy: string | null;
         approvedAt: Date | null;
@@ -128,20 +128,20 @@ export declare class AdminService {
         };
         upcomingBookings: ({
             user: {
-                id: string;
                 email: string;
                 name: string;
+                id: string;
             };
             resource: {
-                id: string;
+                type: import("../../generated/prisma/enums").ResourceType;
                 name: string;
+                id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                type: import("../../generated/prisma/enums").ResourceType;
-                capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
                 isQuantifiable: boolean;
                 totalCapacity: number;
                 isActive: boolean;
+                capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
             };
         } & {
             id: string;
@@ -151,24 +151,24 @@ export declare class AdminService {
             startTime: Date;
             endTime: Date;
             userId: string;
+            quantity: number;
+            notes: string | null;
+            isOpenForPartners: boolean;
+            status: import("../../generated/prisma/enums").BookingStatus;
             staffId: string | null;
             partnerOfBookingId: string | null;
-            quantity: number;
-            status: import("../../generated/prisma/enums").BookingStatus;
             totalPrice: number;
             paymentMethod: import("../../generated/prisma/enums").PaymentMethod | null;
             paidAt: Date | null;
-            notes: string | null;
-            isOpenForPartners: boolean;
             softHoldKey: string | null;
             approvedBy: string | null;
             approvedAt: Date | null;
         })[];
     }>;
     getStaff(adminId: string): Promise<{
-        id: string;
         email: string;
         name: string;
+        id: string;
         createdAt: Date;
         updatedAt: Date;
         isActive: boolean;

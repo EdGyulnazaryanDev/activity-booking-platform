@@ -9,24 +9,24 @@ export declare class AdminBookingsController {
     findAll(page?: string, limit?: string, status?: string, userId?: string): Promise<{
         items: ({
             user: {
-                id: string;
                 email: string;
                 name: string;
+                id: string;
             };
             resource: {
-                id: string;
+                type: import("../../generated/prisma/enums").ResourceType;
                 name: string;
+                id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                type: import("../../generated/prisma/enums").ResourceType;
-                capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
                 isQuantifiable: boolean;
                 totalCapacity: number;
                 isActive: boolean;
+                capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
             };
             staff: {
-                id: string;
                 name: string;
+                id: string;
                 specialty: string;
             };
         } & {
@@ -37,15 +37,15 @@ export declare class AdminBookingsController {
             startTime: Date;
             endTime: Date;
             userId: string;
+            quantity: number;
+            notes: string | null;
+            isOpenForPartners: boolean;
+            status: import("../../generated/prisma/enums").BookingStatus;
             staffId: string | null;
             partnerOfBookingId: string | null;
-            quantity: number;
-            status: import("../../generated/prisma/enums").BookingStatus;
             totalPrice: number;
             paymentMethod: import("../../generated/prisma/enums").PaymentMethod | null;
             paidAt: Date | null;
-            notes: string | null;
-            isOpenForPartners: boolean;
             softHoldKey: string | null;
             approvedBy: string | null;
             approvedAt: Date | null;
@@ -58,24 +58,24 @@ export declare class AdminBookingsController {
     getPending(page?: string, limit?: string): Promise<{
         items: ({
             user: {
-                id: string;
                 email: string;
                 name: string;
+                id: string;
             };
             resource: {
-                id: string;
+                type: import("../../generated/prisma/enums").ResourceType;
                 name: string;
+                id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                type: import("../../generated/prisma/enums").ResourceType;
-                capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
                 isQuantifiable: boolean;
                 totalCapacity: number;
                 isActive: boolean;
+                capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
             };
             staff: {
-                id: string;
                 name: string;
+                id: string;
                 specialty: string;
             };
         } & {
@@ -86,15 +86,15 @@ export declare class AdminBookingsController {
             startTime: Date;
             endTime: Date;
             userId: string;
+            quantity: number;
+            notes: string | null;
+            isOpenForPartners: boolean;
+            status: import("../../generated/prisma/enums").BookingStatus;
             staffId: string | null;
             partnerOfBookingId: string | null;
-            quantity: number;
-            status: import("../../generated/prisma/enums").BookingStatus;
             totalPrice: number;
             paymentMethod: import("../../generated/prisma/enums").PaymentMethod | null;
             paidAt: Date | null;
-            notes: string | null;
-            isOpenForPartners: boolean;
             softHoldKey: string | null;
             approvedBy: string | null;
             approvedAt: Date | null;
@@ -115,20 +115,20 @@ export declare class AdminBookingsController {
         };
         upcomingBookings: ({
             user: {
-                id: string;
                 email: string;
                 name: string;
+                id: string;
             };
             resource: {
-                id: string;
+                type: import("../../generated/prisma/enums").ResourceType;
                 name: string;
+                id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                type: import("../../generated/prisma/enums").ResourceType;
-                capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
                 isQuantifiable: boolean;
                 totalCapacity: number;
                 isActive: boolean;
+                capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
             };
         } & {
             id: string;
@@ -138,24 +138,24 @@ export declare class AdminBookingsController {
             startTime: Date;
             endTime: Date;
             userId: string;
+            quantity: number;
+            notes: string | null;
+            isOpenForPartners: boolean;
+            status: import("../../generated/prisma/enums").BookingStatus;
             staffId: string | null;
             partnerOfBookingId: string | null;
-            quantity: number;
-            status: import("../../generated/prisma/enums").BookingStatus;
             totalPrice: number;
             paymentMethod: import("../../generated/prisma/enums").PaymentMethod | null;
             paidAt: Date | null;
-            notes: string | null;
-            isOpenForPartners: boolean;
             softHoldKey: string | null;
             approvedBy: string | null;
             approvedAt: Date | null;
         })[];
     }>;
     getStaff(user: CurrentUserPayload): Promise<{
-        id: string;
         email: string;
         name: string;
+        id: string;
         createdAt: Date;
         updatedAt: Date;
         isActive: boolean;
@@ -166,24 +166,24 @@ export declare class AdminBookingsController {
     }[]>;
     approveBooking(id: string, dto: ApproveBookingDto, user: CurrentUserPayload): Promise<{
         user: {
-            id: string;
             email: string;
             name: string;
+            id: string;
         };
         resource: {
-            id: string;
+            type: import("../../generated/prisma/enums").ResourceType;
             name: string;
+            id: string;
             createdAt: Date;
             updatedAt: Date;
-            type: import("../../generated/prisma/enums").ResourceType;
-            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
             isQuantifiable: boolean;
             totalCapacity: number;
             isActive: boolean;
+            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         };
         staff: {
-            id: string;
             name: string;
+            id: string;
         };
     } & {
         id: string;
@@ -193,35 +193,35 @@ export declare class AdminBookingsController {
         startTime: Date;
         endTime: Date;
         userId: string;
+        quantity: number;
+        notes: string | null;
+        isOpenForPartners: boolean;
+        status: import("../../generated/prisma/enums").BookingStatus;
         staffId: string | null;
         partnerOfBookingId: string | null;
-        quantity: number;
-        status: import("../../generated/prisma/enums").BookingStatus;
         totalPrice: number;
         paymentMethod: import("../../generated/prisma/enums").PaymentMethod | null;
         paidAt: Date | null;
-        notes: string | null;
-        isOpenForPartners: boolean;
         softHoldKey: string | null;
         approvedBy: string | null;
         approvedAt: Date | null;
     }>;
     rejectBooking(id: string, user: CurrentUserPayload): Promise<{
         user: {
-            id: string;
             email: string;
             name: string;
+            id: string;
         };
         resource: {
-            id: string;
+            type: import("../../generated/prisma/enums").ResourceType;
             name: string;
+            id: string;
             createdAt: Date;
             updatedAt: Date;
-            type: import("../../generated/prisma/enums").ResourceType;
-            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
             isQuantifiable: boolean;
             totalCapacity: number;
             isActive: boolean;
+            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         };
     } & {
         id: string;
@@ -231,30 +231,30 @@ export declare class AdminBookingsController {
         startTime: Date;
         endTime: Date;
         userId: string;
+        quantity: number;
+        notes: string | null;
+        isOpenForPartners: boolean;
+        status: import("../../generated/prisma/enums").BookingStatus;
         staffId: string | null;
         partnerOfBookingId: string | null;
-        quantity: number;
-        status: import("../../generated/prisma/enums").BookingStatus;
         totalPrice: number;
         paymentMethod: import("../../generated/prisma/enums").PaymentMethod | null;
         paidAt: Date | null;
-        notes: string | null;
-        isOpenForPartners: boolean;
         softHoldKey: string | null;
         approvedBy: string | null;
         approvedAt: Date | null;
     }>;
     markAsPaid(id: string, user: CurrentUserPayload): Promise<{
         resource: {
-            id: string;
+            type: import("../../generated/prisma/enums").ResourceType;
             name: string;
+            id: string;
             createdAt: Date;
             updatedAt: Date;
-            type: import("../../generated/prisma/enums").ResourceType;
-            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
             isQuantifiable: boolean;
             totalCapacity: number;
             isActive: boolean;
+            capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         };
     } & {
         id: string;
@@ -264,15 +264,15 @@ export declare class AdminBookingsController {
         startTime: Date;
         endTime: Date;
         userId: string;
+        quantity: number;
+        notes: string | null;
+        isOpenForPartners: boolean;
+        status: import("../../generated/prisma/enums").BookingStatus;
         staffId: string | null;
         partnerOfBookingId: string | null;
-        quantity: number;
-        status: import("../../generated/prisma/enums").BookingStatus;
         totalPrice: number;
         paymentMethod: import("../../generated/prisma/enums").PaymentMethod | null;
         paidAt: Date | null;
-        notes: string | null;
-        isOpenForPartners: boolean;
         softHoldKey: string | null;
         approvedBy: string | null;
         approvedAt: Date | null;

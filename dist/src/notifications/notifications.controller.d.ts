@@ -4,30 +4,30 @@ export declare class NotificationsController {
     private readonly notificationsService;
     constructor(notificationsService: NotificationsService);
     findAll(user: CurrentUserPayload): Promise<{
+        type: import("../../generated/prisma/enums").NotificationType;
+        title: string;
         id: string;
         createdAt: Date;
-        type: import("../../generated/prisma/enums").NotificationType;
         userId: string;
-        title: string;
         message: string;
         isRead: boolean;
     }[]>;
     findUnread(user: CurrentUserPayload): Promise<{
+        type: import("../../generated/prisma/enums").NotificationType;
+        title: string;
         id: string;
         createdAt: Date;
-        type: import("../../generated/prisma/enums").NotificationType;
         userId: string;
-        title: string;
         message: string;
         isRead: boolean;
     }[]>;
     getUnreadCount(user: CurrentUserPayload): Promise<number>;
     markAsRead(id: string): Promise<{
+        type: import("../../generated/prisma/enums").NotificationType;
+        title: string;
         id: string;
         createdAt: Date;
-        type: import("../../generated/prisma/enums").NotificationType;
         userId: string;
-        title: string;
         message: string;
         isRead: boolean;
     }>;

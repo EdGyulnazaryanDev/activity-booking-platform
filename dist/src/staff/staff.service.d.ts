@@ -4,9 +4,9 @@ export declare class StaffService {
     private prisma;
     constructor(prisma: PrismaService);
     create(dto: CreateStaffDto): Promise<{
-        id: string;
         email: string;
         name: string;
+        id: string;
         createdAt: Date;
         updatedAt: Date;
         isActive: boolean;
@@ -17,9 +17,9 @@ export declare class StaffService {
     }>;
     findAll(page?: number, limit?: number, search?: string, isActive?: boolean): Promise<{
         items: {
-            id: string;
             email: string;
             name: string;
+            id: string;
             createdAt: Date;
             updatedAt: Date;
             isActive: boolean;
@@ -34,9 +34,9 @@ export declare class StaffService {
         totalPages: number;
     }>;
     findOne(id: string): Promise<{
-        id: string;
         email: string;
         name: string;
+        id: string;
         createdAt: Date;
         updatedAt: Date;
         isActive: boolean;
@@ -46,9 +46,9 @@ export declare class StaffService {
         phone: string | null;
     }>;
     update(id: string, dto: UpdateStaffDto): Promise<{
-        id: string;
         email: string;
         name: string;
+        id: string;
         createdAt: Date;
         updatedAt: Date;
         isActive: boolean;
@@ -58,9 +58,9 @@ export declare class StaffService {
         phone: string | null;
     }>;
     remove(id: string): Promise<{
-        id: string;
         email: string;
         name: string;
+        id: string;
         createdAt: Date;
         updatedAt: Date;
         isActive: boolean;

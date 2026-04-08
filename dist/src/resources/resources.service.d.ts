@@ -19,15 +19,15 @@ export declare class ResourcesService {
             hourlyRate: number;
         }[];
     } & {
-        id: string;
+        type: ResourceType;
         name: string;
+        id: string;
         createdAt: Date;
         updatedAt: Date;
-        type: ResourceType;
-        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         isQuantifiable: boolean;
         totalCapacity: number;
         isActive: boolean;
+        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
     })[]>;
     findOne(id: string): Promise<{
         pricingRules: {
@@ -44,48 +44,48 @@ export declare class ResourcesService {
             hourlyRate: number;
         }[];
     } & {
-        id: string;
+        type: ResourceType;
         name: string;
+        id: string;
         createdAt: Date;
         updatedAt: Date;
-        type: ResourceType;
-        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         isQuantifiable: boolean;
         totalCapacity: number;
         isActive: boolean;
+        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
     }>;
     create(data: CreateResourceDto): Promise<{
-        id: string;
+        type: ResourceType;
         name: string;
+        id: string;
         createdAt: Date;
         updatedAt: Date;
-        type: ResourceType;
-        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         isQuantifiable: boolean;
         totalCapacity: number;
         isActive: boolean;
+        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
     }>;
     update(id: string, data: UpdateResourceDto): Promise<{
-        id: string;
+        type: ResourceType;
         name: string;
+        id: string;
         createdAt: Date;
         updatedAt: Date;
-        type: ResourceType;
-        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         isQuantifiable: boolean;
         totalCapacity: number;
         isActive: boolean;
+        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
     }>;
     remove(id: string): Promise<{
-        id: string;
+        type: ResourceType;
         name: string;
+        id: string;
         createdAt: Date;
         updatedAt: Date;
-        type: ResourceType;
-        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         isQuantifiable: boolean;
         totalCapacity: number;
         isActive: boolean;
+        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
     }>;
     findByType(type: ResourceType): Promise<({
         pricingRules: {
@@ -102,14 +102,14 @@ export declare class ResourcesService {
             hourlyRate: number;
         }[];
     } & {
-        id: string;
+        type: ResourceType;
         name: string;
+        id: string;
         createdAt: Date;
         updatedAt: Date;
-        type: ResourceType;
-        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
         isQuantifiable: boolean;
         totalCapacity: number;
         isActive: boolean;
+        capacityType: import("../../generated/prisma/enums").ResourceCapacityType;
     })[]>;
 }
